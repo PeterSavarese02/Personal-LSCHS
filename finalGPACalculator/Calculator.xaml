@@ -1,0 +1,58 @@
+﻿<Window x:Class="finalGPACalculator.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:finalGPACalculator"
+        mc:Ignorable="d"
+       Title="Calculator" Width="400" Height="500" MinHeight="500" MinWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- Math Equation Box-->
+        <TextBox x:Name="calcEquText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" TextAlignment="Center" FontSize="36">0</TextBox>
+
+        <!-- Begin Number Buttons -->
+        <!-- Top Row -->
+        <Button x:Name="calcNum7" Grid.Row="2" Grid.Column="0" Click="numberBtnClick">7</Button>
+        <Button x:Name="calcNum8" Grid.Row="2" Grid.Column="1" Click="numberBtnClick">8</Button>
+        <Button x:Name="calcNum9" Grid.Row="2" Grid.Column="2" Click="numberBtnClick">9</Button>
+
+        <!-- Middle Row -->
+        <Button x:Name="calcNum4" Grid.Row="3" Grid.Column="0" Click="numberBtnClick">4</Button>
+        <Button x:Name="calcNum5" Grid.Row="3" Grid.Column="1" Click="numberBtnClick">5</Button>
+        <Button x:Name="calcNum6" Grid.Row="3" Grid.Column="2" Click="numberBtnClick">6</Button>
+
+        <!-- Middle Row -->
+        <Button x:Name="calcNum1" Grid.Row="4" Grid.Column="0" Click="numberBtnClick">1</Button>
+        <Button x:Name="calcNum2" Grid.Row="4" Grid.Column="1" Click="numberBtnClick">2</Button>
+        <Button x:Name="calcNum3" Grid.Row="4" Grid.Column="2" Click="numberBtnClick">3</Button>
+
+        <!-- Bottom Row -->
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Click="numberBtnClick">0</Button>
+        <Button Grid.Row="5" Grid.Column="4" Click="calcNumEqual_Click">=</Button>
+
+        <!-- Math Operations -->
+        <Button x:Name="calcNumClear" Grid.Row="1" Grid.Column="0" Click="calcNumClear_Click">AC</Button>
+        <Button Grid.Row="1" Grid.Column="1" Click="Button_Click">+/-</Button>
+        <Button x:Name="calcPerc" Grid.Row="1" Grid.Column="2" Click="calcPerc_Click">%</Button>
+        <Button x:Name="calcNumDivide" Grid.Row="1" Grid.Column="4" Click="operationBtnClick">÷</Button>
+        <Button x:Name="calcNumMult" Grid.Row="2" Grid.Column="4" Click="operationBtnClick">x</Button>
+        <Button x:Name="calcNumSub" Grid.Row="3" Grid.Column="4" Click="operationBtnClick">-</Button>
+        <Button x:Name="calcNumAdd" Grid.Row="4" Grid.Column="4" Click="operationBtnClick">+</Button>
+    </Grid>
+</Window>
