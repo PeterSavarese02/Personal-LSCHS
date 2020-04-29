@@ -1,3 +1,5 @@
+![GPA Calculator](https://i.imgur.com/0RUlo8P.png "GPA Calculator")
+
 # Personal LSCHS
 This was my final project due while a sophomore at La Salle College High School for Introduction to Visual Studio. I recently opened it again and simplified the code  a lot, calling a function for repeated actions instead of repeating code, saving and loading of GPA inputs, and more.
 
