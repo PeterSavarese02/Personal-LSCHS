@@ -29,10 +29,6 @@ namespace finalGPACalculator
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Used in try;catch and if statements for checking is something goes wrong. If so, this function is called
-        /// </summary>
-        /// <param name="mMessage"></param>
         public void ErrorCatcher(string mMessage)
         {
             if (mMessage == "")
