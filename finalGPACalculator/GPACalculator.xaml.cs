@@ -29,6 +29,10 @@ namespace finalGPACalculator
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Called in try;catch and if checks. Displays popup box
+        /// </summary>
+        /// <param name="mMessage"></param>
         public void ErrorCatcher(string mMessage)
         {
             if (mMessage == "")
@@ -39,11 +43,25 @@ namespace finalGPACalculator
             MessageBox.Show("Error:\n" + mMessage, "Error Catcher", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+        /// <summary>
+        /// Simple math.Clamp function. Doesn't allow int to fall below <paramref name="min"/> and above <paramref name="max"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         private static int Clamp(int value, int min, int max)
         {
             return (value < min) ? min : (value > max) ? max : value;
         }
 
+        /// <summary>
+        /// Calculates the GPA for the specified class.
+        /// </summary>
+        /// <param name="dProvidedPerc">Percentage grade for the class we are claulcaating</param>
+        /// <param name="lblGPA">The Label of the GPA to the right of the row. This is changed at the end when we calculate the GPA for this class</param>
+        /// <param name="classType">Whether this class is a regular, honors, or A.P.</param>
+        /// <returns></returns>
         private double convertPercToGPA(int dProvidedPerc, Label lblGPA, ComboBox classType)
         {
             double dReturnValue = 0.00; // The GPA of the provided dProvidedPerc
@@ -107,6 +125,12 @@ namespace finalGPACalculator
             return dReturnValue;
         }
 
+        /// <summary>
+        /// Go through all rows and calculate the total GPA
+        /// TODO: Put this into a for loop instead of making messy/repeating code
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void getGPA_click(object sender, EventArgs e)
         {
             // Begin grade conversion
@@ -139,6 +163,11 @@ namespace finalGPACalculator
             // FinalGPA.Content = System.Convert.ToString(Math.Round(FinalScore, 2));
         }
 
+        /// <summary>
+        /// Get each class' percentage grade and the class type (A.P., honors) and store it in a JSon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveGradesButton_click(object sender, RoutedEventArgs e)
         {
             double[,] iGrades = new double[9,2];
@@ -175,6 +204,11 @@ namespace finalGPACalculator
             File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/petersav/grades.json", sGradesInJson);
         }
 
+        /// <summary>
+        /// Load the JSon file for persons grades and populate the menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadGradesButton_click(object sender, RoutedEventArgs e)
         {
             if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/petersav/grades.json"))
